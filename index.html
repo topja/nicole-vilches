@@ -11,7 +11,7 @@
 /* Layout: quiet single column, generous whitespace; a leaf-green band for services; hairline dividers instead of boxes */
 :root{
   --bg:#FAFAF7; --surface:#F0F2EC; --ink:#26302A; --muted:#5E6A61; --line:#D9DED5;
-  --green:#3E5A47; --gold:#A8874E; --on-green:#F4F6F1;
+  --green:#3E5A47; --gold:#A8874E; --on-green:#F4F6F1; --tile:#FFFFFF; --tile-ink:#3B4540;
   --f-display:"Cormorant Garamond","Garamond","Times New Roman",serif;
   --f-body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
@@ -74,7 +74,32 @@ a{color:inherit}
 .about .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}
 .about h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
 .about-body{display:grid;gap:18px;color:var(--muted)}
-.brands{font-family:var(--f-display);font-size:1.3rem;color:var(--ink);font-style:italic}
+
+/* logo carousel */
+.logos{padding-block:56px 64px;border-bottom:1px solid var(--line)}
+.logos .kicker{text-align:center;margin-bottom:28px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{list-style:none;margin:0;padding:0;display:flex;gap:20px;width:max-content;animation:marquee 32s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.logo{flex:none;width:200px;height:96px;background:var(--tile);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;padding:18px 26px}
+.logo img{max-width:100%;max-height:56px;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .3s,opacity .3s}
+.logo:hover img{filter:none;opacity:1}
+.wm{font-family:var(--f-display);font-size:1.45rem;font-weight:600;color:var(--tile-ink);letter-spacing:.04em;text-align:center;line-height:1.1}
+@keyframes marquee{to{transform:translateX(calc(-50% - 10px))}}
+@media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.track li[aria-hidden]{display:none}}
+
+/* testimonials */
+.testis .wrap{padding-block:88px}
+.testis h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
+.testi{margin:0;padding:32px 28px 28px;background:var(--surface);border-radius:4px;display:flex;flex-direction:column;gap:20px;position:relative;min-width:0}
+.testi::before{content:"\201C";font-family:var(--f-display);font-size:4.5rem;line-height:.6;color:var(--gold);height:.4em}
+.testi blockquote{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.4;font-style:italic;flex:1}
+.testi figcaption{display:grid;gap:2px;font-size:.9rem;color:var(--muted);padding-top:16px;border-top:1px solid var(--line)}
+.testi figcaption b{color:var(--ink);font-weight:600}
+.svc-tag{margin-top:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600}
+.tag-tpl{position:absolute;top:14px;right:14px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px dashed var(--gold);color:var(--gold);padding:2px 8px;border-radius:999px}
+@media (max-width:860px){.testi-grid{grid-template-columns:1fr}}
 
 /* contact */
 .contact .wrap{padding-block:96px;text-align:center;display:grid;justify-items:center;gap:20px}
@@ -177,8 +202,28 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
       </div>
       <div class="about-body">
         <p>Fui Jefa de Calidad en una planta certificada BRC y Product Manager de marcas propias en retail. Hoy asesoro a empresas y emprendimientos para certificar sus plantas y lanzar productos que cumplan la normativa.</p>
-        <p class="brands">South Wind · Tottus · Macro Food · PF · Coca-Cola Embonor</p>
       </div>
+    </div>
+  </section>
+
+  <!-- LOGOS: para cambiar un logo, reemplaza el src de la imagen; para South Wind y Macro Food, sube el archivo a una carpeta logos/ y cambia el <span class="wm"> por <img src="logos/archivo.png" alt="Nombre">. -->
+  <section class="logos" aria-label="Empresas en las que ha trabajado">
+    <div class="wrap">
+      <p class="kicker">Empresas en las que ha trabajado</p>
+    </div>
+    <div class="marquee">
+      <ul class="track">
+          <li class="logo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logotipo_Tottus.svg" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><span class="wm">South Wind</span></li>
+          <li class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Productos_Fernandez%C2%BA.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><span class="wm">Macro Food</span></li>
+          <li class="logo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coca-Cola_logo.svg" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Logotipo_Tottus.svg" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><span class="wm">South Wind</span></li>
+          <li class="logo" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Productos_Fernandez%C2%BA.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><span class="wm">Macro Food</span></li>
+          <li class="logo" aria-hidden="true"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Coca-Cola_logo.svg" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+      </ul>
     </div>
   </section>
 
@@ -216,5 +261,6 @@ document.getElementById('copy').addEventListener('click', function(){
   catch(e){ fallback(); }
 });
 </script>
+
 </body>
 </html>
