@@ -82,8 +82,7 @@ a{color:inherit}
 .track{list-style:none;margin:0;padding:0;display:flex;gap:20px;width:max-content;animation:marquee 32s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
 .logo{flex:none;width:200px;height:96px;background:var(--tile);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;padding:18px 26px}
-.logo img{max-width:100%;max-height:56px;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .3s,opacity .3s}
-.logo:hover img{filter:none;opacity:1}
+.logo img{max-width:100%;max-height:60px;object-fit:contain}
 .wm{font-family:var(--f-display);font-size:1.45rem;font-weight:600;color:var(--tile-ink);letter-spacing:.04em;text-align:center;line-height:1.1}
 @keyframes marquee{to{transform:translateX(calc(-50% - 10px))}}
 @media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.track li[aria-hidden]{display:none}}
