@@ -39,7 +39,7 @@ a{color:inherit}
 .top nav a:hover{color:var(--ink)}
 
 /* hero */
-.hero .wrap{padding-block:72px 96px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;max-width:860px;text-align:left}
+.hero .wrap{padding-block:72px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;max-width:860px;text-align:left}
 .hero h1{font-size:clamp(2.6rem,6vw,4.4rem)}
 .hero h1 em{font-style:italic;color:var(--green)}
 .hero .lead{font-size:1.15rem;color:var(--muted);max-width:36em}
@@ -76,7 +76,7 @@ a{color:inherit}
 .about-body{display:grid;gap:18px;color:var(--muted)}
 
 /* logo carousel */
-.logos{padding-block:56px 64px;border-bottom:1px solid var(--line)}
+.logos{padding-block:8px 72px}
 .logos .kicker{text-align:center;margin-bottom:28px}
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{list-style:none;margin:0;padding:0;display:flex;gap:20px;width:max-content;animation:marquee 32s linear infinite}
@@ -111,7 +111,7 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
 
 @media (max-width:760px){
   .top nav{display:none}
-  .hero .wrap{padding-block:40px 64px}
+  .hero .wrap{padding-block:40px 32px}
   .svc-list,.alc .wrap,.about .wrap{grid-template-columns:1fr;gap:0 0}
   .alc .wrap,.about .wrap{gap:32px}
   .alc li{flex-direction:column;gap:2px}
@@ -147,6 +147,27 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
         <span>Experiencia en planta y retail</span>
         <span>Chile y Perú</span>
       </div>
+    </div>
+  </section>
+
+  <!-- LOGOS: para cambiar un logo, reemplaza el src de la imagen; para South Wind y Macro Food, sube el archivo a una carpeta logos/ y cambia el <span class="wm"> por <img src="logos/archivo.png" alt="Nombre">. -->
+  <section class="logos" aria-label="Empresas en las que he trabajado">
+    <div class="wrap">
+      <p class="kicker">Empresas en las que he trabajado</p>
+    </div>
+    <div class="marquee">
+      <ul class="track">
+          <li class="logo"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
+          <li class="logo"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
+          <li class="logo"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+      </ul>
     </div>
   </section>
 
@@ -202,27 +223,6 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
       <div class="about-body">
         <p>Fui Jefa de Calidad en una planta certificada BRC y Product Manager de marcas propias en retail. Hoy asesoro a empresas y emprendimientos para certificar sus plantas y lanzar productos que cumplan la normativa.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- LOGOS: para cambiar un logo, reemplaza el src de la imagen; para South Wind y Macro Food, sube el archivo a una carpeta logos/ y cambia el <span class="wm"> por <img src="logos/archivo.png" alt="Nombre">. -->
-  <section class="logos" aria-label="Empresas en las que he trabajado">
-    <div class="wrap">
-      <p class="kicker">Empresas en las que he trabajado</p>
-    </div>
-    <div class="marquee">
-      <ul class="track">
-          <li class="logo"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
-          <li class="logo"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
-          <li class="logo"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-      </ul>
     </div>
   </section>
 
