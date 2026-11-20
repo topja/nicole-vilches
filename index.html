@@ -8,113 +8,101 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;600&display=swap">
 <style>
-/* Layout: quiet single column, generous whitespace; a leaf-green band for services; hairline dividers instead of boxes */
+/* Layout: three compact screens. 1) hero + company logos in one band, 2) services + alcohol line, 3) trayectoria beside contact */
 :root{
   --bg:#FAFAF7; --surface:#F0F2EC; --ink:#26302A; --muted:#5E6A61; --line:#D9DED5;
-  --green:#3E5A47; --gold:#A8874E; --on-green:#F4F6F1; --tile:#FFFFFF; --tile-ink:#3B4540;
+  --green:#3E5A47; --gold:#A8874E; --on-green:#F4F6F1; --tile:#FFFFFF; --hl:#3E5A47;
   --f-display:"Cormorant Garamond","Garamond","Times New Roman",serif;
   --f-body:"Karla",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#151A17; --surface:#1C231F; --ink:#E8ECE5; --muted:#A3AFA6; --line:#2E3832;
-  --green:#2C4234; --gold:#CDAE75; --on-green:#EEF2EC; color-scheme:dark}}
+  --green:#2C4234; --gold:#CDAE75; --on-green:#EEF2EC; --hl:#9CC2A6; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#151A17; --surface:#1C231F; --ink:#E8ECE5; --muted:#A3AFA6; --line:#2E3832;
-  --green:#2C4234; --gold:#CDAE75; --on-green:#EEF2EC; color-scheme:dark}
+  --green:#2C4234; --gold:#CDAE75; --on-green:#EEF2EC; --hl:#9CC2A6; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.7}
-.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;line-height:1.1;text-wrap:balance}
 p{margin:0}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.kicker{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.kicker{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--green);color:var(--on-green);text-decoration:none;font-weight:600;font-size:.92rem;border:0;cursor:pointer;font-family:var(--f-body)}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
 
-/* header */
-.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:28px;flex-wrap:wrap}
-.mark{font-family:var(--f-display);font-size:1.45rem;font-weight:600;letter-spacing:.01em;text-decoration:none}
-.top nav{display:flex;gap:28px;font-size:.92rem}
+/* ---------- screen 1: header, hero, logos ---------- */
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px}
+.mark{font-family:var(--f-display);font-size:1.35rem;font-weight:600;text-decoration:none}
+.top nav{display:flex;gap:26px;font-size:.9rem}
 .top nav a{text-decoration:none;color:var(--muted)}
 .top nav a:hover{color:var(--ink)}
 
-/* hero */
-.hero .wrap{padding-block:72px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px;max-width:860px;text-align:left}
-.hero h1{font-size:clamp(2.6rem,6vw,4.4rem)}
-.hero h1 em{font-style:italic;color:var(--green)}
-.hero .lead{font-size:1.15rem;color:var(--muted);max-width:36em}
-.btn{display:inline-block;padding:14px 28px;border-radius:999px;background:var(--green);color:var(--on-green);text-decoration:none;font-weight:600;font-size:.95rem;border:0;cursor:pointer;font-family:var(--f-body)}
-.btn:hover{filter:brightness(1.1)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-.creds{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:.88rem;color:var(--muted);padding-top:28px;border-top:1px solid var(--line);margin-top:20px}
-.creds span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:10px;vertical-align:middle}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center;padding-block:40px 36px}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem);margin-top:14px}
+.hero h1 em{font-style:italic;color:var(--hl)}
+.hero .lead{font-size:1.06rem;color:var(--muted);max-width:34em;margin-block:18px 26px}
+.facts{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
+.facts li{padding:14px 0 14px 24px;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.facts li:last-child{border-bottom:0}
+.facts b{font-family:var(--f-display);font-size:1.9rem;font-weight:600;line-height:1}
+.facts span{color:var(--muted);font-size:.9rem}
 
-/* services */
-.services{background:var(--green);color:var(--on-green)}
-.services .wrap{padding-block:88px}
-.services .kicker{color:var(--gold)}
-.services h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px;max-width:16em}
-.svc-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px;margin-top:48px}
-.svc{padding-block:28px;border-top:1px solid color-mix(in srgb,var(--on-green) 22%,transparent);display:grid;gap:8px}
-.svc h3{font-size:1.65rem}
-.svc p{opacity:.82;font-size:.98rem}
-
-/* alcohol */
-.alc .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
-.alc h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
-.alc h2 em{font-style:italic;color:var(--green)}
-.alc-text{display:grid;gap:18px;color:var(--muted)}
-.alc ul{list-style:none;padding:0;margin:0;display:grid;gap:0}
-.alc li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink)}
-.alc li b{font-family:var(--f-display);font-size:1.25rem;font-weight:600;min-width:7.2em;color:var(--green)}
-
-/* about */
-.about{background:var(--surface)}
-.about .wrap{padding-block:88px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}
-.about h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
-.about-body{display:grid;gap:18px;color:var(--muted)}
-
-/* logo carousel */
-.logos{padding-block:8px 72px}
-.logos .kicker{text-align:center;margin-bottom:28px}
+.logos{padding-block:8px 44px}
+.logos .kicker{text-align:center;margin-bottom:16px}
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.track{list-style:none;margin:0;padding:0;display:flex;gap:20px;width:max-content;animation:marquee 32s linear infinite}
+.track{list-style:none;margin:0;padding:0;display:flex;gap:16px;width:max-content;animation:marquee 30s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
-.logo{flex:none;width:200px;height:96px;background:var(--tile);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;padding:18px 26px}
-.logo img{max-width:100%;max-height:60px;object-fit:contain}
-.wm{font-family:var(--f-display);font-size:1.45rem;font-weight:600;color:var(--tile-ink);letter-spacing:.04em;text-align:center;line-height:1.1}
-@keyframes marquee{to{transform:translateX(calc(-50% - 10px))}}
+.logo{flex:none;width:170px;height:76px;background:var(--tile);border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;padding:14px 22px}
+.logo img{max-width:100%;max-height:48px;object-fit:contain}
+.wm{font-family:var(--f-display);font-size:1.25rem;font-weight:600;color:#3B4540;text-align:center;line-height:1.1}
+@keyframes marquee{to{transform:translateX(calc(-50% - 8px))}}
 @media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}.track li[aria-hidden]{display:none}}
 
-/* testimonials */
-.testis .wrap{padding-block:88px}
-.testis h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:12px}
-.testi-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
-.testi{margin:0;padding:32px 28px 28px;background:var(--surface);border-radius:4px;display:flex;flex-direction:column;gap:20px;position:relative;min-width:0}
-.testi::before{content:"\201C";font-family:var(--f-display);font-size:4.5rem;line-height:.6;color:var(--gold);height:.4em}
-.testi blockquote{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.4;font-style:italic;flex:1}
-.testi figcaption{display:grid;gap:2px;font-size:.9rem;color:var(--muted);padding-top:16px;border-top:1px solid var(--line)}
-.testi figcaption b{color:var(--ink);font-weight:600}
-.svc-tag{margin-top:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600}
-.tag-tpl{position:absolute;top:14px;right:14px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px dashed var(--gold);color:var(--gold);padding:2px 8px;border-radius:999px}
-@media (max-width:860px){.testi-grid{grid-template-columns:1fr}}
+/* ---------- screen 2: services + alcohol ---------- */
+.services{background:var(--green);color:var(--on-green)}
+.services .wrap{padding-block:56px}
+.services h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-top:8px}
+.svc-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:32px}
+.svc{padding-top:18px;border-top:1px solid color-mix(in srgb,var(--on-green) 25%,transparent);display:grid;gap:6px;align-content:start}
+.svc h3{font-size:1.45rem}
+.svc p{opacity:.82;font-size:.93rem}
+.alc{margin-top:40px;padding:26px 28px;border-radius:8px;background:color-mix(in srgb,var(--on-green) 8%,transparent);border:1px solid color-mix(in srgb,var(--on-green) 18%,transparent);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:center}
+.alc h3{font-size:clamp(1.4rem,2.4vw,1.85rem)}
+.alc h3 em{font-style:italic;color:var(--gold)}
+.alc .kicker{margin-bottom:8px}
+.alc ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;font-size:.92rem}
+.alc li b{display:block;font-family:var(--f-display);font-size:1.2rem;font-weight:600;color:var(--gold)}
+.alc li span{opacity:.82}
 
-/* contact */
-.contact .wrap{padding-block:96px;text-align:center;display:grid;justify-items:center;gap:20px}
-.contact h2{font-size:clamp(2.2rem,5vw,3.4rem)}
-.contact p{color:var(--muted);max-width:30em}
-.mail{font-family:var(--f-display);font-size:1.6rem;user-select:all;word-break:break-all}
-.copied{font-size:.85rem;color:var(--muted);min-height:1.3em}
+/* ---------- screen 3: trayectoria + contacto ---------- */
+.close .wrap{padding-block:56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.close h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-block:8px 14px}
+.close p{color:var(--muted)}
+.contact-card{background:var(--surface);border-radius:8px;padding:28px;display:grid;gap:14px}
+.contact-card h2{margin:0}
+.mail{font-family:var(--f-display);font-size:1.5rem;color:var(--ink);user-select:all;word-break:break-all}
+.close .mail{color:var(--ink)}
+.copied{font-size:.82rem;min-height:1.2em}
+footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.84rem;color:var(--muted)}
 
-footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
-
-@media (max-width:760px){
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:28px}
+  .facts{border-left:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+  .facts li{padding:14px 10px 0 0;border-bottom:0}
+  .facts b{font-size:1.5rem}
+  .svc-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .alc,.close .wrap{grid-template-columns:1fr;gap:24px}
+}
+@media (max-width:560px){
   .top nav{display:none}
-  .hero .wrap{padding-block:40px 32px}
-  .svc-list,.alc .wrap,.about .wrap{grid-template-columns:1fr;gap:0 0}
-  .alc .wrap,.about .wrap{gap:32px}
-  .alc li{flex-direction:column;gap:2px}
+  .svc-list{grid-template-columns:1fr;gap:18px}
+  .alc{padding:22px 20px}
+  .facts span{font-size:.8rem}
 }
 </style>
 </head>
@@ -126,7 +114,6 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
     <nav aria-label="Secciones">
       <a href="#servicios">Servicios</a>
       <a href="#bebidas">Bebidas alcohólicas</a>
-      <a href="#trayectoria">Trayectoria</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -135,38 +122,38 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="kicker">Ingeniera en Alimentos · Consultora</p>
-      <h1>Calidad e inocuidad para que tu producto llegue <em>al mercado</em>.</h1>
-      <p class="lead">Auditorías de planta, certificaciones HACCP y GFSI, y acompañamiento en el desarrollo de productos, etiquetas y requisitos legales.</p>
-      <div class="actions">
-        <a class="btn" href="#contacto">Conversemos</a>
-        <a class="btn ghost" href="#servicios">Ver servicios</a>
+      <div>
+        <p class="kicker">Ingeniera en Alimentos · Consultora</p>
+        <h1>Calidad e inocuidad para que tu producto llegue <em>al mercado</em>.</h1>
+        <p class="lead">Auditorías de planta, certificaciones HACCP y GFSI, y acompañamiento en el desarrollo de productos, etiquetas y requisitos legales.</p>
+        <div class="actions">
+          <a class="btn" href="#contacto">Conversemos</a>
+          <a class="btn ghost" href="#servicios">Ver servicios</a>
+        </div>
       </div>
-      <div class="creds">
-        <span>Más de 12 años en la industria</span>
-        <span>Experiencia en planta y retail</span>
-        <span>Chile y Perú</span>
-      </div>
+      <ul class="facts">
+        <li><b>+12 años</b><span>en la industria alimentaria</span></li>
+        <li><b>Planta y retail</b><span>calidad, producción y marca propia</span></li>
+        <li><b>Chile y Perú</b><span>proyectos en ambos mercados</span></li>
+      </ul>
     </div>
   </section>
 
-  <!-- LOGOS: para cambiar un logo, reemplaza el src de la imagen; para South Wind y Macro Food, sube el archivo a una carpeta logos/ y cambia el <span class="wm"> por <img src="logos/archivo.png" alt="Nombre">. -->
+  <!-- LOGOS: para cambiar un logo, reemplaza el archivo en la carpeta logos/ -->
   <section class="logos" aria-label="Empresas en las que he trabajado">
-    <div class="wrap">
-      <p class="kicker">Empresas en las que he trabajado</p>
-    </div>
+    <div class="wrap"><p class="kicker">Empresas en las que he trabajado</p></div>
     <div class="marquee">
       <ul class="track">
-          <li class="logo"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
-          <li class="logo"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
-          <li class="logo"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/tottus.png" alt="Tottus" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/south-wind.png" alt="South Wind" loading="lazy"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/pf.png" alt="Productos Fernández" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/macro-food.png" alt="Macro Food" loading="lazy"></li>
-          <li class="logo" aria-hidden="true"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" loading="lazy" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/tottus.png" alt="Tottus" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/south-wind.png" alt="South Wind" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/pf.png" alt="Productos Fernández" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/macro-food.png" alt="Macro Food" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/tottus.png" alt="Tottus" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/south-wind.png" alt="South Wind" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/pf.png" alt="Productos Fernández" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/macro-food.png" alt="Macro Food" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
+          <li class="logo" aria-hidden="true"><img src="logos/coca-cola.png" alt="Coca-Cola Embonor" onerror="this.outerHTML='<span class=&quot;wm&quot;>'+this.alt+'</span>'"></li>
       </ul>
     </div>
   </section>
@@ -182,7 +169,7 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
         </article>
         <article class="svc">
           <h3>Desarrollo de productos</h3>
-          <p>Formulación, fichas técnicas, vida útil y puesta en marcha, hasta que el producto está listo para vender.</p>
+          <p>Formulación, fichas técnicas, vida útil y puesta en marcha hasta que el producto está listo para vender.</p>
         </article>
         <article class="svc">
           <h3>Etiquetado</h3>
@@ -193,20 +180,15 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
           <p>Cumplimiento del Reglamento Sanitario de los Alimentos y preparación para fiscalizaciones.</p>
         </article>
       </div>
-    </div>
-  </section>
 
-  <section class="alc" id="bebidas">
-    <div class="wrap">
-      <div>
-        <p class="kicker">Ley 18.455 · SAG</p>
-        <h2>¿Quieres elaborar, vender o comercializar una bebida alcohólica? <em>Te podemos ayudar.</em></h2>
-      </div>
-      <div class="alc-text">
-        <p>Asesoría en el desarrollo del producto y en todos los trámites ante el SAG.</p>
+      <div class="alc" id="bebidas">
+        <div>
+          <p class="kicker">Ley 18.455 · SAG</p>
+          <h3>¿Quieres elaborar, vender o comercializar una bebida alcohólica? <em>Te podemos ayudar.</em></h3>
+        </div>
         <ul>
           <li><b>Elaborar</b><span>Formulación y proceso conforme a la ley</span></li>
-          <li><b>Comercializar</b><span>Registro de bebidas alcohólicas y etiqueta</span></li>
+          <li><b>Comercializar</b><span>Registro de bebidas y etiqueta</span></li>
           <li><b>Importar</b><span>Solicitud de importación y rotulado</span></li>
           <li><b>Exportar</b><span>Antecedentes para la certificación</span></li>
         </ul>
@@ -214,29 +196,24 @@ footer .wrap{padding-block:28px;border-top:1px solid var(--line);display:flex;ju
     </div>
   </section>
 
-  <section class="about" id="trayectoria">
+  <section class="close">
     <div class="wrap">
       <div>
         <p class="kicker">Trayectoria</p>
         <h2>Experiencia desde la planta hasta la góndola</h2>
-      </div>
-      <div class="about-body">
         <p>Fui Jefa de Calidad en una planta certificada BRC y Product Manager de marcas propias en retail. Hoy asesoro a empresas y emprendimientos para certificar sus plantas y lanzar productos que cumplan la normativa.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contacto">
-    <div class="wrap">
-      <p class="kicker">Contacto</p>
-      <h2>Conversemos sobre tu proyecto</h2>
-      <p>Cuéntame en qué etapa estás y te respondo con una propuesta.</p>
-      <p class="mail" id="mail">nicolelisette@gmail.com</p>
-      <div class="actions">
-        <button class="btn" id="copy" type="button">Copiar correo</button>
-        <a class="btn ghost" href="https://www.linkedin.com/in/nicole-lisette-vilches-amigo-5a5b53a5" target="_blank" rel="noopener">LinkedIn</a>
+      <div class="contact-card" id="contacto">
+        <p class="kicker">Contacto</p>
+        <h2>Conversemos sobre tu proyecto</h2>
+        <p>Cuéntame en qué etapa estás y te respondo con una propuesta.</p>
+        <p class="mail" id="mail">nicolelisette@gmail.com</p>
+        <div class="actions">
+          <button class="btn" id="copy" type="button">Copiar correo</button>
+          <a class="btn ghost" href="https://www.linkedin.com/in/nicole-lisette-vilches-amigo-5a5b53a5" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p class="copied" id="copied" aria-live="polite"></p>
       </div>
-      <p class="copied" id="copied" aria-live="polite"></p>
     </div>
   </section>
 </main>
