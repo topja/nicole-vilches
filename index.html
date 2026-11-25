@@ -42,15 +42,16 @@ a{color:inherit}
 .top nav a{text-decoration:none;color:var(--muted)}
 .top nav a:hover{color:var(--ink)}
 
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:56px;align-items:center;padding-block:40px 36px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:56px;align-items:center;padding-block:36px 36px}
 .hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem);margin-top:14px}
 .hero h1 em{font-style:italic;color:var(--hl)}
 .hero .lead{font-size:1.06rem;color:var(--muted);max-width:34em;margin-block:18px 26px}
-.facts{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
-.facts li{padding:14px 0 14px 24px;border-bottom:1px solid var(--line);display:grid;gap:2px}
-.facts li:last-child{border-bottom:0}
-.facts b{font-family:var(--f-display);font-size:1.9rem;font-weight:600;line-height:1}
-.facts span{color:var(--muted);font-size:.9rem}
+.facts{list-style:none;margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.facts li{display:grid;gap:2px}
+.facts b{font-family:var(--f-display);font-size:1.45rem;font-weight:600;line-height:1.1}
+.facts span{color:var(--muted);font-size:.84rem}
+.portrait{margin:0;justify-self:end;width:100%;max-width:380px}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:610/640;object-fit:cover;border-radius:10px;border:1px solid var(--line)}
 
 .logos{padding-block:8px 44px}
 .logos .kicker{text-align:center;margin-bottom:16px}
@@ -92,9 +93,7 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
 
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;gap:28px;padding-block:28px}
-  .facts{border-left:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
-  .facts li{padding:14px 10px 0 0;border-bottom:0}
-  .facts b{font-size:1.5rem}
+  .portrait{justify-self:start;max-width:320px;grid-row:1}
   .svc-list{grid-template-columns:repeat(2,minmax(0,1fr))}
   .alc,.close .wrap{grid-template-columns:1fr;gap:24px}
 }
@@ -130,12 +129,13 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
           <a class="btn" href="#contacto">Conversemos</a>
           <a class="btn ghost" href="#servicios">Ver servicios</a>
         </div>
+        <ul class="facts">
+          <li><b>+12 años</b><span>en la industria</span></li>
+          <li><b>Planta y retail</b><span>calidad y marca propia</span></li>
+          <li><b>Chile y Perú</b><span>proyectos en ambos</span></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>+12 años</b><span>en la industria alimentaria</span></li>
-        <li><b>Planta y retail</b><span>calidad, producción y marca propia</span></li>
-        <li><b>Chile y Perú</b><span>proyectos en ambos mercados</span></li>
-      </ul>
+      <figure class="portrait"><img src="img/nicole.jpg" alt="Nicole Vilches, Ingeniera en Alimentos" width="610" height="640"></figure>
     </div>
   </section>
 
