@@ -90,6 +90,11 @@ a{color:inherit}
 .mail{font-family:var(--f-display);font-size:1.5rem;color:var(--ink);user-select:all;word-break:break-all}
 .close .mail{color:var(--ink)}
 .copied{font-size:.82rem;min-height:1.2em}
+.channels{margin:0;display:grid;gap:12px}
+.channels dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.channels dd{margin:2px 0 0}
+.channels a.mail{text-decoration:none}
+.channels a.mail:hover{text-decoration:underline}
 footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.84rem;color:var(--muted)}
 
 @media (max-width:900px){
@@ -127,7 +132,7 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
         <h1>Calidad e inocuidad para que tu producto llegue <em>al mercado</em>.</h1>
         <p class="lead">Auditorías de planta, certificaciones HACCP y GFSI, y acompañamiento en el desarrollo de productos, etiquetas y requisitos legales.</p>
         <div class="actions">
-          <a class="btn" href="#contacto">Conversemos</a>
+          <a class="btn" href="https://wa.me/56991748857?text=Hola%2C%20quiero%20cotizar%20una%20asesor%C3%ADa" target="_blank" rel="noopener">Conversemos por WhatsApp</a>
           <a class="btn ghost" href="#servicios">Ver servicios</a>
         </div>
         <ul class="facts">
@@ -207,10 +212,14 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
       <div class="contact-card" id="contacto">
         <p class="kicker">Contacto</p>
         <h2>Conversemos sobre tu proyecto</h2>
-        <p>Cuéntame en qué etapa estás y te respondo con una propuesta.</p>
-        <p class="mail" id="mail">nicolelisette@gmail.com</p>
+        <p>Cuéntame en qué etapa estás y te respondo con una propuesta. Puedes escribir por WhatsApp, llamar o enviar un correo.</p>
+        <dl class="channels">
+          <div><dt>WhatsApp y teléfono</dt><dd><a class="mail" href="https://wa.me/56991748857?text=Hola%2C%20quiero%20cotizar%20una%20asesor%C3%ADa" target="_blank" rel="noopener">+56 9 9174 8857</a></dd></div>
+          <div><dt>Correo</dt><dd class="mail" id="mail">nicolelisette@gmail.com</dd></div>
+        </dl>
         <div class="actions">
-          <button class="btn" id="copy" type="button">Copiar correo</button>
+          <a class="btn" href="https://wa.me/56991748857?text=Hola%2C%20quiero%20cotizar%20una%20asesor%C3%ADa" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <button class="btn ghost" id="copy" type="button">Copiar correo</button>
           <a class="btn ghost" href="https://www.linkedin.com/in/nicole-lisette-vilches-amigo-5a5b53a5" target="_blank" rel="noopener">LinkedIn</a>
         </div>
         <p class="copied" id="copied" aria-live="polite"></p>
