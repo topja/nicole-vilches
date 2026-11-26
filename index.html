@@ -109,7 +109,17 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
   .alc{padding:22px 20px}
   .facts span{font-size:.8rem}
 }
+
+/* floating WhatsApp button */
+.wa-float{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none;transition:transform .2s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg,.wa-float i{width:32px;height:32px;font-size:32px}
+.wa-float .wa-tip{position:absolute;right:70px;white-space:nowrap;background:var(--surface);color:var(--ink);border:1px solid var(--line);font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}
+.wa-float:hover .wa-tip,.wa-float:focus-visible .wa-tip{opacity:1}
+@media (prefers-reduced-motion:reduce){.wa-float{transition:none}.wa-float:hover{transform:none}}
 </style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/brands.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/fontawesome.min.js"></script>
 </head>
 <body>
 
@@ -234,6 +244,8 @@ footer .wrap{padding-block:22px;border-top:1px solid var(--line);display:flex;ju
     <span>Santiago, Chile</span>
   </div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/56991748857?text=Hola%2C%20quiero%20cotizar%20una%20asesor%C3%ADa" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp al +56 9 9174 8857"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span class="wa-tip">Escríbenos por WhatsApp</span></a>
 
 <script>
 document.getElementById('copy').addEventListener('click', function(){
