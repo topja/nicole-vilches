@@ -2,6 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (Google Ads) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18581044703"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','AW-18581044703');
+// Mide los clics en enlaces de WhatsApp como contacto
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me/"]');if(a){gtag('event','contacto_whatsapp',{link_url:a.href});}},true);
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Nicole Vilches, Ingeniera en Alimentos: auditorías y certificación HACCP y GFSI, desarrollo de productos, etiquetado, asesoría legal sanitaria y bebidas alcohólicas ante el SAG.">
 <title>NV Consultora</title>
